@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts 
+Configuration 1.3//EN" "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+<struts-config>
+	<form-beans>
+		<form-bean name="danhSachNhaHangForm" type="form.DanhSachNhaHangForm" />
+		<form-bean name="nhaHangForm" type="form.NhaHangForm" />
+	</form-beans>
+	<action-mappings>
+	
+	<action 
+			path="/danh-sach" 
+			name="danhSachNhaHangForm"
+			type="action.DanhSachNhaHangAction"
+			input="/danhSachNhaHang.jsp" 
+			scope="request" >
+			<forward name="danh-sach" path="/danhSachNhaHang.jsp"/>
+	</action>
+	
+	<action 
+			path="/suaNhaHang" 
+			name="nhaHangForm"
+			type="action.SuaNhaHangAction"
+			input="/suaNhaHang.jsp" 
+			scope="request" >
+			<forward name="suaNhaHang" path="/suaNhaHang.jsp"/>
+			<forward name="suaNhaHangXong" path="/danh-sach.do"/>
+	</action>
+	
+	<action 
+			path="/xoaNhaHang" 
+			name="nhaHangForm"
+			type="action.XoaNhaHangAction"
+			input="/xoaNhaHang.jsp" 
+			scope="request" >
+			<forward name="xoaNhaHang" path="/xoaNhaHang.jsp"/>
+			<forward name="xoaNhaHangXong" path="/danh-sach.do"/>
+	</action>
+	
+	<action 
+			path="/themNhaHang" 
+			name="nhaHangForm"
+			type="action.ThemNhaHangAction"
+			input="/themNhaHang.jsp" 
+			scope="request" >
+			<forward name="themNhaHang" path="/themNhaHang.jsp"/>
+			<forward name="themNhaHangXong" path="/danh-sach.do"/>
+	</action>
+	
+	</action-mappings>
+	<message-resources parameter="action.ApplicationResources" />
+</struts-config>
